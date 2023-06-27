@@ -15,7 +15,18 @@ describe('EmpleadoDetalleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('Prueba usando el Pipe', () => {
+    it('debe transformar el nombre de un empleado a Titulo usando el Pipe', () => {
+      const hostElement: HTMLElement = harness.routeNativeElement!;
+      const nameInput: HTMLInputElement = hostElement.querySelector('input')!;
+      const nameDisplay: HTMLElement = hostElement.querySelector('span')!;
+    
+      // simulamos una entrada de nombre en el campo
+      nameInput.value = 'MARIA de LAS TREs Cruces';
+      nameInput.dispatchEvent(new Event('input'));
+      harness.detectChanges();
+    
+      expect(nameDisplay.textContent).toBe('Maria De Las Tres Cruces');
+    });
   });
 });
