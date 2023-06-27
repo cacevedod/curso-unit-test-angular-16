@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BannerComponent } from './banner.component';
+import { HighlightDirective } from '../highlight.directive';
 
 describe('BannerComponent', () => {
   let component: BannerComponent;
@@ -8,7 +9,8 @@ describe('BannerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BannerComponent]
+      declarations: [BannerComponent, , HighlightDirective],
+      schemas:      [ CUSTOM_ELEMENTS_SCHEMA ]
     });
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
@@ -17,5 +19,13 @@ describe('BannerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Pruebas para la Directiva', () => {
+    it('debe resaltar el Titulo de color "skyblue"', () => {
+      const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
+      const bgColor = h2.style.backgroundColor;
+      expect(bgColor).toBe('skyblue');
+    });
   });
 });
