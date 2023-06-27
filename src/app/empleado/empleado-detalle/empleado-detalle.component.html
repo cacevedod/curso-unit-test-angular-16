@@ -1,5 +1,5 @@
 <div *ngIf="empleado">
-    <h2><span>{{empleado.nombre}}</span> Detalles</h2>  
+    <h2><span>{{empleado.nombre  | titlecase }}</span> Detalles</h2>  
     
     <div *ngIf="!nuevo">
         <span>id: </span>{{empleado.id}}
