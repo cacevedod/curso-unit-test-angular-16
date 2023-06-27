@@ -1,8 +1,13 @@
 import { TitleCasePipe } from './title-case.pipe';
 
 describe('TitleCasePipe', () => {
-  it('create an instance', () => {
-    const pipe = new TitleCasePipe();
-    expect(pipe).toBeTruthy();
+  const pipe = new TitleCasePipe();
+
+  it('debe transformar "abc" to "Abc"', () => {
+    expect(pipe.transform('abc')).toBe('Abc');
+  });
+
+  it('debe transformar "abc def" to "Abc Def"', () => {
+    expect(pipe.transform('abc def')).toBe('Abc Def');
   });
 });
