@@ -39,13 +39,7 @@ describe('BannerComponent', () => {
     tests();
   });
 
-  describe('Pruebas para la Directiva', () => {
-    it('debe resaltar el Titulo de color "skyblue"', () => {
-      const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
-      const bgColor = h2.style.backgroundColor;
-      expect(bgColor).toBe('skyblue');
-    });
-  });
+  
 
   function tests() {
     it('ejemplo de que no se encuentran los titulos sin usar detectChanges()', () => {
@@ -61,6 +55,14 @@ describe('BannerComponent', () => {
       component.title = 'Titulo de prueba';
       fixture.detectChanges();
       expect(h1.textContent).toContain('Titulo de prueba');
+    });
+
+    describe('Pruebas para la Directiva', () => {
+      it('debe resaltar el Titulo de color "skyblue"', () => {
+        fixture.detectChanges();
+        const bgColor = h1.style.backgroundColor;
+        expect(bgColor).toBe('skyblue');
+      });
     });
   }
 });
