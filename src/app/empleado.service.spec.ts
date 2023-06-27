@@ -15,6 +15,7 @@ describe('EmpleadoService', () => {
     });
 
     empleadoService = TestBed.inject(EmpleadoService);
+    empleadoService.isMocked=false;
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -42,7 +43,7 @@ describe('EmpleadoService', () => {
     const empleadoId = 1;
     const dummyEmpleado: Empleado = { id: empleadoId, nombre: 'Juan', apellido: 'Pérez', edad: 30, puesto: 'Gerente' };
 
-    empleadoService.getEmpleadoById(empleadoId).subscribe((empleado: Empleado) => {
+    empleadoService.getEmpleadoById(empleadoId).subscribe((empleado: Empleado|undefined) => {
       expect(empleado).toEqual(dummyEmpleado);
     });
 
@@ -80,7 +81,7 @@ describe('EmpleadoService', () => {
     const empleadoId = 1;
     const mockEmpleado: Empleado = { id: empleadoId, nombre: 'Juan', apellido: 'Pérez', edad: 30, puesto: 'Gerente' };
 
-    empleadoService.getEmpleadoById(empleadoId).subscribe((empleado: Empleado) => {
+    empleadoService.getEmpleadoById(empleadoId).subscribe((empleado: Empleado|undefined) => {
       expect(empleado).toEqual(mockEmpleado);
     });
 
