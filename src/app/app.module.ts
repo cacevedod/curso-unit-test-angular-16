@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './banner/banner.component';
 import { TitleCasePipe } from './title-case.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannerComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
