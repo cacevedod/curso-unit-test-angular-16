@@ -1,0 +1,9 @@
+<h2 highlight="gold">Empleados</h2>
+<ul class="empleados">
+  <li *ngFor="let empleado of empleados | async ">
+    <button [class.selected]="empleado === selectedEmpleado" type="button" (click)="onSelect(empleado)">
+      <span class="badge">{{empleado.id}}</span>
+      <span class="name">{{empleado.nombre}}</span>
+    </button>
+  </li>
+</ul>

@@ -1,0 +1,31 @@
+<div *ngIf="empleado">
+    <h2><span>{{empleado.nombre}}</span> Detalles</h2>  
+    
+    <div *ngIf="!nuevo">
+        <span>id: </span>{{empleado.id}}
+    </div>
+    <div *ngIf="nuevo">
+        <label for="id">Id:</label>
+        <input id="id" [(ngModel)]="empleado.id">
+    </div>
+    <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" [(ngModel)]="empleado.nombre">
+    </div>
+    <div>
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" [(ngModel)]="empleado.apellido">
+    </div>
+    <div>
+        <label for="edad">Edad:</label>
+        <input id="edad" [(ngModel)]="empleado.edad">
+    </div>
+    <div>
+        <label for="puesto">Puesto:</label>
+        <input id="puesto" [(ngModel)]="empleado.puesto">
+    </div>
+    <button type="button" (click)="save()">Save</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+</div>
+  
+  
