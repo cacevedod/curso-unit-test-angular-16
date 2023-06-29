@@ -30,4 +30,18 @@ describe('DescuentoService', () => {
     const descuento = descuentoService.calcularDescuento(valorCompra);
     expect(descuento).toBe(0);
   });
+
+  describe('Control de Errores', () => {
+    it('debería lanzar un error si el valor de compra es negativo', () => {
+      const valorCompra = -50;
+
+      expect(() => descuentoService.calcularDescuento(valorCompra)).toThrowError('El valor de compra debe ser un número mayor a cero.');
+    });
+
+    it('debería lanzar un error si el valor de compra es cero', () => {
+      const valorCompra = 0;
+
+      expect(() => descuentoService.calcularDescuento(valorCompra)).toThrowError('El valor de compra debe ser un número mayor a cero.');
+    });
+  });
 });

@@ -9,7 +9,10 @@ export class DescuentoService {
   
   calcularDescuento(valorCompra: number): number {
     let descuento = 0;
-    
+    if (valorCompra <= 0) {
+      throw new Error('El valor de compra debe ser un número mayor a cero.');
+    }
+
     if (valorCompra > 80 && valorCompra <= 140) {
       descuento = valorCompra * 0.05;
     } else if (valorCompra > 140 && valorCompra <= 200) {
