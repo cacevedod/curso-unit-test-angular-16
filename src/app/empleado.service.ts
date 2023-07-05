@@ -9,7 +9,7 @@ import { from, of } from 'rxjs';
 })
 export class EmpleadoService {
   private apiUrl = 'https://ejemplo.com/api/empleados'; // Reemplaza con la URL de tu API
-  isMocked: Boolean = true;
+  isMocked: Boolean = false;
   
   empleadosDummy: Empleado[] = [
     {id: 1, nombre: 'carlos', apellido: "acevedo", puesto: "arq"} as Empleado,
